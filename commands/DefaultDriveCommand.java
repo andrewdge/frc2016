@@ -9,16 +9,20 @@ public class DefaultDriveCommand extends Command{
   private Robot robot;
 
   //constructor
+  //needs driveSubsystem
   public DefaultDriveCommand(Robot robotInstance){
     robot = robotInstance;
     requires(robot.driveSubsystem);
   }
 
+  //runs every few seconds
   protected void execute(){
     if(robot.isOperatorControl()){ // only drive with joysticks on teleop mode
 
+      //Tank Drive with left and right joysticks
       robot.driveSubsystem.tankDrive(Controls.driveLeftThrottle(), Controls.driveRightThrottle());
 
+      //otherwise, stop
     }else robot.driveSubsystem.stopMotors();
     
   }
