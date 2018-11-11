@@ -13,6 +13,9 @@ public class Robot extends TimedRobot{
 
 
   //Instantiate subsystems
+  //Subsystems must be referenced in each file so there is only 1 instance of the robot.
+  //instantiated with :
+  //    private Robot robot
   public DriveSubsystem driveSubsystem = new DriveSubsystem(this);
   public IntakeRollerSubsystem intakeRollerSubsystem = new IntakeRollerSubsystem(this);
   public IntakeLiftSubsystem intakeLiftSubsystem = new IntakeLiftSubsystem(this);
@@ -25,6 +28,7 @@ public class Robot extends TimedRobot{
   }
 
   //Every Periodic method needs to get instance from scheduler
+  //This schedules commands
   public void robotPeriodic(){
     Scheduler.getInstance().run();
   }
