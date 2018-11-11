@@ -46,6 +46,7 @@ public final class Controls{
 	private static final int XBOX_BUTTON_RTHUMB = 10;
 	
 	// Xbox POV
+	//Angles on DPAD
 	private static final int XBOX_POV_CENTER = -1;
 	private static final int XBOX_POV_UP = 0;
 	private static final int XBOX_POV_UPRIGHT = 45;
@@ -59,12 +60,14 @@ public final class Controls{
 	// 0 +- the number. this value will be ignored from values passed through the deadband method
     private final static double deadband = 0.1;
     
-    
+    //Instantiate joysticks
+	//Joystick places should match on the FRC Dashboard
     private static Joystick joystickDriveLeft = new Joystick(0);
     private static Joystick joystickDriveRight = new Joystick(1);
     private static Joystick xboxController = new Joystick(2);
 
     //deadband with a value of .15
+	//To account for small movements, set values < .15 around the center of the joystick to 0
     private static double deadband(double rawValue){
         if(Math.abs(rawValue) < .15) return 0.0;
         else return rawValue;
